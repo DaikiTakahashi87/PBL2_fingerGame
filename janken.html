@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>じゃんけんゲーム 操作説明</title>
+    <style>
+        body {
+            font-family: 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            border: 2px solid #ccc;
+            padding: 20px;
+            min-height: 400px; /* ある程度の高さを確保 */
+            border-radius: 8px;
+        }
+
+        .explanation {
+            width: 60%;
+            text-align: left;
+            padding-right: 20px;
+        }
+
+        .explanation p {
+            font-size: 1.3em; /* 文字を大きく */
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+        
+        .explanation strong {
+            color: #d9534f; /* 赤系の色で強調 */
+            font-size: 1.1em;
+        }
+
+        .game-screen-area {
+            width: 35%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .game-screen {
+            width: 100%;
+            max-width: 200px; /* ゲーム画面のサイズを調整 */
+            height: 300px;
+            background-color: #777;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            border-radius: 15px;
+        }
+
+        .return-button {
+            padding: 15px 40px;
+            font-size: 1.5em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .return-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>操作説明</h1>
+    <h2>じゃんけんゲーム：瞬時の判断力が鍵！</h2>
+
+    <div class="main-content">
+        <div class="explanation">
+            <p><strong>【目的】</strong></p>
+            <p>司令に合わせて手を出すことで、集中力と判断力を鍛えます。</p>
+            
+            <p><strong>【遊び方】</strong></p>
+            <ol>
+                <li>画面に<strong>「勝ってください」</strong>または<strong>「負けてください」</strong>のお題が表示されます。</li>
+                <li>そのお題に合うように、カメラに自分の手をすばやく出して形を作ってください。</li>
+                <li>正しく手が判別されると得点！素早く正確に出しましょう！</li>
+            </ol>
+
+            <p><strong>【脳トレのポイント】</strong></p>
+            <p>普通のじゃんけんとは違い、<strong>「一瞬で反対の行動を選ぶ」</strong>という高度な判断が必要となり、脳を強力に活性化します。</p>
+        </div>
+
+        <div class="game-screen-area">
+            <div class="game-screen">
+                ゲーム画面<br>（イメージ）
+            </div>
+        </div>
+    </div>
+
+   <button class="return-button" onclick="location.href='game_select.html'">戻る</bu
+
+</div>
+
+</body>
+</html>

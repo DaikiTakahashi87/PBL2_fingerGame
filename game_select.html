@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゲーム選択画面</title>
+    <style>
+        body {
+            font-family: 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: left;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2列 */
+            gap: 20px;
+            border: 2px solid #ccc;
+            padding: 10px;
+        }
+
+        .game-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            background-color: #fff;
+            min-height: 250px; /* カードの高さを確保 */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .game-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .game-image-area {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            height: 120px; /* 画像エリアの高さを固定 */
+        }
+
+        .game-image-area img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            margin: 0 5px; /* 複数の画像がある場合の隙間 */
+        }
+
+        .action-area {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .info-button {
+            padding: 8px 15px;
+            font-size: 1.1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .info-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>ゲーム選択画面</h1>
+
+    <h2>ゲームを選択してください</h2>
+
+    <div class="game-grid">
+        
+        <div class="game-card">
+            <div class="game-title">まねっこゲーム</div>
+            <div class="game-image-area">
+                <img src="gu.png" alt="グーの画像" class="game-image">
+            </div>
+            <div class="action-area">
+                <a href="manekko.html" class="info-button">操作説明</a>
+                <a href="imitationgame.html" class="info-button">遊ぶ</a>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-title">じゃんけんゲーム</div>
+            <div class="game-image-area">
+                <img src="gu.png" alt="グーの画像" style="width: 100px;">
+                <img src="choki.png" alt="チョキの画像" style="width: 100px;">
+                </div>
+            <div class="action-area">
+                <a href="janken.html" class="info-button">操作説明</a>
+                <a href="janken_game.html" class="info-button">遊ぶ</a>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-title">指遊びゲーム</div>
+            <div class="game-image-area">
+                <img src="pa.png" alt="パーの画像" style="width: 100px;">
+                <img src="chou.png" alt="蝶の画像" style="width: 100px;">
+            </div>
+            <div class="action-area">
+                <a href="yubiasobi.html" class="info-button">操作説明</a>
+                <a href="yubiasobi_game.html" class="info-button">遊ぶ</a>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="game-title">リズムゲーム</div>
+            <div class="game-image-area">
+                <img src="rism.png" alt="音符の画像" class="game-image">
+            </div>
+            <div class="action-area">
+                <a href="rism.html" class="info-button">操作説明</a>
+                <a href="rhythmgame.html" class="info-button">遊ぶ</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

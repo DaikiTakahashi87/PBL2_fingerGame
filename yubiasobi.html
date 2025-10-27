@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指遊びゲーム 操作説明</title>
+    <style>
+        body {
+            font-family: 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            border: 2px solid #ccc;
+            padding: 20px;
+            min-height: 400px;
+            border-radius: 8px;
+        }
+
+        .explanation {
+            width: 60%;
+            text-align: left;
+            padding-right: 20px;
+        }
+
+        .explanation p {
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+        
+        .explanation strong {
+            color: #f0ad4e; /* オレンジ系の色で強調 */
+            font-size: 1.1em;
+        }
+
+        .game-screen-area {
+            width: 35%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .game-screen {
+            width: 100%;
+            max-width: 200px;
+            height: 300px;
+            background-color: #777;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            border-radius: 15px;
+        }
+
+        .return-button {
+            padding: 15px 40px;
+            font-size: 1.5em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .return-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>操作説明</h1>
+    <h2>指遊び：頭と指を使う！「お題の形を作ろう」</h2>
+
+    <div class="main-content">
+        <div class="explanation">
+            <p><strong>【目的】</strong></p>
+            <p>お題の形をどう作るか考えながら指を動かすことで、思考力と指の細かい運動能力を養います。</p>
+            
+            <p><strong>【遊び方】</strong></p>
+            <ol>
+                <li>画面に<strong>「丸を作ってみよう」「指で輪っかを３つ」</strong>など、作ってほしい手の形や動きのお題が表示されます。</li>
+                <li>お題の形を目標に、自分の指を使って挑戦してください。</li>
+                <li>指定された形が完成すると得点！ちょっと難しい形にもチャレンジしてみましょう。</li>
+            </ol>
+
+            <p><strong>【脳トレのポイント】</strong></p>
+            <p>手の形をイメージし、指一本一本に指令を出すことで、特に前頭葉（思考・計画を司る部分）の活性化に役立ちます。</p>
+        </div>
+
+        <div class="game-screen-area">
+            <div class="game-screen">
+                ゲーム画面<br>（イメージ）
+            </div>
+        </div>
+    </div>
+
+    <button class="return-button" onclick="location.href='game_select.html'">戻る</bu
+
+</div>
+
+</body>
+</html>
