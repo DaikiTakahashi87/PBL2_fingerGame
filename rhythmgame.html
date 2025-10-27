@@ -1,0 +1,57 @@
+<!--ローカルホスト立ち上げ方法:ターミナルにpython -m http.server 8000と入力、ブラウザでhttp://localhost:3000-->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>まねっこゲーム</title>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+  
+  <style type="text/css" media="screen">
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* スクロールバー非表示*/
+  }
+
+  .container {
+    width: 100%;
+    height: calc(100% - 130px);
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #canvasElement {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+  }
+</style>
+
+</head>
+
+<body>
+  <h1>リズムゲーム</h1>
+
+  <div class="container">
+    <video id="videoElement" playsinline style="display:none;"></video>
+    <canvas id="canvasElement" width="640" height="480"></canvas>
+  </div>
+  使用するカメラ：<select id="cameraDevice"></select><br>
+  <label><input type="checkbox" id="showimg" checked>show original image</label>
+  <label><input type="checkbox" id="mirrormode" checked>mirror mode</label>
+  <p id="gestureText">ポーズ: 未検出</p>
+
+  <script src="rhythmgame.js" type="module">
+  </script>
+  
+</body>
+
+</html>
