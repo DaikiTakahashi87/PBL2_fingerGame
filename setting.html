@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>設定</title>
+    <style>
+        body {
+            font-family: 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .setting-group {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .setting-group h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .setting-item {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .setting-item label {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .setting-item select,
+        .setting-item input[type="range"] {
+            padding: 8px;
+            font-size: 1.2em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            min-width: 150px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 30px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #007bff;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(30px);
+        }
+
+        .button-group {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .button {
+            padding: 15px 40px;
+            font-size: 1.5em;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .save-button {
+            background-color: #28a745;
+        }
+
+        .save-button:hover {
+            background-color: #218838;
+        }
+
+        .return-button {
+            background-color: #007bff;
+        }
+
+        .return-button:hover {
+            background-color: #0056b3;
+        }
+
+        .preview-text {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>設定</h1>
+
+    <div class="setting-group">
+        <h2>表示設定</h2>
+        
+        <div class="setting-item">
+            <label for="fontSize">文字サイズ：</label>
+            <select id="fontSize">
+                <option value="small">小</option>
+                <option value="medium">中</option>
+                <option value="large">大</option>
+                <option value="xlarge">特大</option>
+            </select>
+        </div>
+
+        <div class="preview-text" id="previewText">
+            プレビュー：この大きさで表示されます
+        </div>
+    </div>
+
+    <div class="setting-group">
+        <h2>音声設定</h2>
+        
+        <div class="setting-item">
+            <label for="soundEnabled">効果音：</label>
+            <label class="toggle-switch">
+                <input type="checkbox" id="soundEnabled">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="setting-item">
+            <label for="soundVolume">音量：</label>
+            <input type="range" id="soundVolume" min="0" max="100" value="50">
+            <span id="volumeValue">50</span>%
+        </div>
+    </div>
+
+    <div class="setting-group">
+        <h2>ゲーム設定</h2>
+        
+        <div class="setting-item">
+            <label for="mirrorMode">ミラーモード：</label>
+            <label class="toggle-switch">
+                <input type="checkbox" id="mirrorMode">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="setting-item">
+            <label for="showImage">元画像を表示：</label>
+            <label class="toggle-switch">
+                <input type="checkbox" id="showImage">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <div class="button-group">
+        <button class="button save-button" onclick="saveSettings()">設定を保存</button>
+        <button class="button return-button" onclick="location.href='game_select.html'">戻る</button>
+    </div>
+</div>
+
+<script src="settings-manager.js"></script>
+<script>
+    // ページ読み込み時に設定を反映
+    window.addEventListener('load', () => {
+        loadSettingsToUI();
+        updatePreview();
+    });
+
+    // 文字サイズ変更時のプレビュー更新
+    document.getElementById('fontSize').addEventListener('change', updatePreview);
+
+    // 音量スライダーの値表示更新
+    document.getElementById('soundVolume').addEventListener('input', (e) => {
+        document.getElementById('volumeValue').textContent = e.target.value;
+    });
+
+    function updatePreview() {
+        const fontSize = document.getElementById('fontSize').value;
+        const previewText = document.getElementById('previewText');
+        
+        const sizeMap = {
+            'small': '1em',
+            'medium': '1.3em',
+            'large': '1.6em',
+            'xlarge': '2em'
+        };
+        
+        previewText.style.fontSize = sizeMap[fontSize];
+    }
+
+    function saveSettings() {
+        const settings = {
+            fontSize: document.getElementById('fontSize').value,
+            soundEnabled: document.getElementById('soundEnabled').checked,
+            soundVolume: document.getElementById('soundVolume').value,
+            mirrorMode: document.getElementById('mirrorMode').checked,
+            showImage: document.getElementById('showImage').checked
+        };
+
+        // 設定を保存
+        saveGameSettings(settings);
+        
+        alert('設定を保存しました！');
+    }
+
+    function loadSettingsToUI() {
+        const settings = loadGameSettings();
+        
+        document.getElementById('fontSize').value = settings.fontSize;
+        document.getElementById('soundEnabled').checked = settings.soundEnabled;
+        document.getElementById('soundVolume').value = settings.soundVolume;
+        document.getElementById('mirrorMode').checked = settings.mirrorMode;
+        document.getElementById('showImage').checked = settings.showImage;
+        
+        document.getElementById('volumeValue').textContent = settings.soundVolume;
+    }
+</script>
+
+</body>
+</html>

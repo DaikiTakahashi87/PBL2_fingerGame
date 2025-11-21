@@ -5,6 +5,9 @@ const cameraDeviceSelect = document.getElementById("cameraDevice");
 const showimgCheckbox = document.getElementById("showimg");
 const mirrormodeCheckbox = document.getElementById("mirrormode");
 const gestureTextElement = document.getElementById("gestureText");
+const gameSettings = loadGameSettings();
+window.addEventListener('load', applyAllSettings);
+
 
 var question_image = new Image();
 var user_image = new Image();
